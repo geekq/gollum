@@ -10,6 +10,8 @@ require File.expand_path '../gitcode', __FILE__
 # initialize Pygments
 Pygments.start
 
+require 'gtd'
+
 module Gollum
 
   class Markup
@@ -59,6 +61,7 @@ module Gollum
       data = extract_gitcode(data)
       data = extract_code(data)
       data = extract_wsd(data)
+      data = GTD::inject_todo(data)
       data = extract_tags(data)
       begin
         data = GitHub::Markup.render(@name, data)
