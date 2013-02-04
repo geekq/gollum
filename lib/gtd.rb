@@ -12,7 +12,7 @@
         (#{TAGGED_VALUE_REGEX}+)?         # tagged values 2:, 3:, 4:
         (.*)                              # 5:title
         /x
-      t.start = $1.upcase
+      t.start = $1.upcase.strip
       t.orig_attributes_str = $2
       t.desc = $+.strip
 
